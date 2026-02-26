@@ -1,0 +1,254 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 400px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button,
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:hover,
+.btn:hover {
+    background: #0056b3;
+}
+
+form input,
+form select {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #555;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.popup {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup input {
+    width: 80%;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.popup button {
+    padding: 8px 15px;
+    background: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup button:hover {
+    background: #0056b3;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th {
+    background: #007BFF;
+    color: white;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+.container-wide {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #007BFF;
+}
+
+.filter-bar {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.table-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #007BFF;
+    color: white;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+.continue-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.role-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.role-card {
+    width: 200px;
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.role-card.admin {
+    background: #343a40;
+}
+
+.role-card.team {
+    background: #28a745;
+}
+
+.role-card.player {
+    background: #17a2b8;
+}
+
+.role-card:hover {
+    transform: scale(1.05);
+}
+
+.login-box {
+    width: 350px;
+    margin: 80px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-box input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-box button {
+    width: 95%;
+    padding: 10px;
+    background: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background: #0056b3;
+}

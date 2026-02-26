@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Player Auction Management ER Diagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        .canvas {
+            position: relative;
+            width: 1800px;
+            height: 1200px;
+            margin: 20px auto;
+        }
+
+        .entity {
+            position: absolute;
+            padding: 10px 20px;
+            border: 3px solid black;
+            background: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .attribute {
+            position: absolute;
+            padding: 8px 15px;
+            border: 2px solid black;
+            border-radius: 50%;
+            background: white;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        svg {
+            position: absolute;
+            width: 1800px;
+            height: 1200px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2 style="text-align:center;">Player Auction Management System - ER Diagram</h2>
+
+<div class="canvas">
+
+    <!-- SVG for relationships -->
+    <svg>
+        <!-- Admin - Auction -->
+        <line x1="200" y1="200" x2="600" y2="200" stroke="black" stroke-width="2"/>
+
+        <!-- Auction - Team -->
+        <line x1="750" y1="200" x2="1100" y2="200" stroke="black" stroke-width="2"/>
+
+        <!-- Auction - Player -->
+        <line x1="700" y1="250" x2="700" y2="500" stroke="black" stroke-width="2"/>
+
+        <!-- Auction - Position -->
+        <line x1="750" y1="300" x2="1100" y2="450" stroke="black" stroke-width="2"/>
+
+        <!-- Player - Auction_Record -->
+        <line x1="700" y1="600" x2="1200" y2="600" stroke="black" stroke-width="2"/>
+
+        <!-- Team - Auction_Record -->
+        <line x1="1200" y1="250" x2="1200" y2="600" stroke="black" stroke-width="2"/>
+
+        <!-- Auction - Auction_Record -->
+        <line x1="750" y1="250" x2="1200" y2="550" stroke="black" stroke-width="2"/>
+    </svg>
+
+    <!-- ENTITIES -->
+
+    <div class="entity" style="top:170px; left:80px;">
+        ADMIN
+    </div>
+
+    <div class="entity" style="top:170px; left:600px;">
+        AUCTION
+    </div>
+
+    <div class="entity" style="top:170px; left:1100px;">
+        TEAM
+    </div>
+
+    <div class="entity" style="top:500px; left:600px;">
+        PLAYER
+    </div>
+
+    <div class="entity" style="top:450px; left:1100px;">
+        POSITION
+    </div>
+
+    <div class="entity" style="top:570px; left:1200px;">
+        AUCTION_RECORD
+    </div>
+
+    <!-- SAMPLE ATTRIBUTES (Minimal for Clean View) -->
+
+    <!-- Admin -->
+    <div class="attribute" style="top:90px; left:60px;">admin_id (PK)</div>
+    <div class="attribute" style="top:90px; left:200px;">name</div>
+
+    <!-- Auction -->
+    <div class="attribute" style="top:90px; left:600px;">auction_id (PK)</div>
+    <div class="attribute" style="top:90px; left:780px;">auction_code</div>
+
+    <!-- Team -->
+    <div class="attribute" style="top:90px; left:1100px;">team_id (PK)</div>
+    <div class="attribute" style="top:90px; left:1280px;">team_name</div>
+
+    <!-- Player -->
+    <div class="attribute" style="top:700px; left:580px;">player_id (PK)</div>
+    <div class="attribute" style="top:700px; left:760px;">name</div>
+
+    <!-- Position -->
+    <div class="attribute" style="top:380px; left:1100px;">position_id (PK)</div>
+    <div class="attribute" style="top:380px; left:1280px;">position_name</div>
+
+    <!-- Auction Record -->
+    <div class="attribute" style="top:700px; left:1200px;">record_id (PK)</div>
+    <div class="attribute" style="top:700px; left:1380px;">final_price</div>
+
+</div>
+
+</body>
+</html>
