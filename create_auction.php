@@ -17,16 +17,19 @@ if(isset($_POST['submit'])){
     $min_base_price = $_POST['min_base_price'];
     $auction_code = "AUC" . rand(1000,9999);
 
-    $admin_query = "INSERT INTO Admin (name,email,password)
-                    VALUES ('$admin_name','$admin_email','$admin_password')";
-    mysqli_query($conn,$admin_query);
+
+$admin_query = "INSERT INTO Admin (name, email, password)
+VALUES ('$admin_name', '$admin_email', '$admin_password')";
+
+mysqli_query($conn, $admin_query);
+
+$admin_id = mysqli_insert_id($conn);
     
-    $auction_query = "INSERT INTO Auction 
-    (auction_name, auction_code, game_type, venue, auction_date, auction_time, 
-     max_teams, max_players_per_team, max_purse, min_base_price, status)
-    VALUES 
-    ('$auction_name', '$auction_code','$game_type','$venue','$auction_date','$auction_time',
-     '$max_teams','$max_players','$max_purse','$min_base_price','Created')";
+    $auction_query = "INSERT INTO Auction (admin_id, auction_name, auction_code, game_type, venue, auction_date, auction_time, 
+max_teams, max_players_per_team, max_purse, min_base_price, status)
+VALUES 
+('$admin_id', '$auction_name', '$auction_code', '$game_type', '$venue', '$auction_date', '$auction_time',
+'$max_teams', '$max_players', '$max_purse', '$min_base_price', 'Created')";
 
     mysqli_query($conn,$auction_query);
 
