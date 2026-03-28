@@ -67,9 +67,13 @@ if(isset($_POST['login'])){
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<p>Auction Code: <strong><?php echo $auction_code; ?></strong></p>
 <div class="login-box">
 <h2>Admin Login</h2>
+
+<?php if($auction_code): ?>
+    <p style="color: #666; margin-bottom: 20px;">Auction Code: <strong><?php echo htmlspecialchars($auction_code); ?></strong></p>
+<?php endif; ?>
+
 
 <form method="POST">
     <input type="email" name="email" placeholder="Email" required>

@@ -2,6 +2,13 @@
 include("../config/db.php");
 session_start();
 
+// Get auction code from URL
+if(isset($_GET['code'])){
+    $auction_code = mysqli_real_escape_string($conn, $_GET['code']);
+} else {
+    $auction_code = null;
+}
+
 if(isset($_POST['login'])){
 
     $username = $_POST['username'];
@@ -34,13 +41,17 @@ if(isset($_POST['login'])){
 <div class="login-box">
 <h2>Team Login</h2>
 
+<?php if($auction_code): ?>
+    <p style="color: #666; margin-bottom: 20px;">Auction Code: <strong><?php echo htmlspecialchars($auction_code); ?></strong></p>
+<?php endif; ?>
+
 <form method="POST">
     <input type="text" name="username" placeholder="Username" required>
     <input type="password" name="password" placeholder="Password" required>
     <button type="submit" name="login">Login</button>
 </form>
 
-<a href="register.php">New Team? Register</a>
+<a href="register.php<?php echo $auction_code ? '?code=' . urlencode($auction_code) : ''; ?>">New Team? Register</a>
 </div>
 
 </body>
