@@ -124,8 +124,8 @@ if(isset($_POST['submit'])){
     <h2>💰 Record Auction</h2>
     <p>Record player sales during the auction</p>
 
-    <div class="auction-form-row">
-        <div class="table-card">
+    <div class="auction-form-row" style="margin-top: 30px;">
+        <div class="table-card" style="width: 100%; max-width: 900px;">
         <form method="POST">
 
             <select name="player_id" id="playerSelect" onchange="loadPlayerDetails()" required>
@@ -168,7 +168,7 @@ if(isset($_POST['submit'])){
         </div>
 
         <!-- PLAYER DETAILS TABLE -->
-        <div id="playerDetailsTable" style="display: none;">
+        <div id="playerDetailsTable" style="display: none; width: 100%; max-width: 900px;">
             <h3>Player Details</h3>
         <table class="table table-bordered">
             <tbody>

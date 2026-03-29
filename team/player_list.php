@@ -21,7 +21,7 @@ if(!$team){
 
 // Get all approved players for the auction
 $players_query = mysqli_query($conn, "
-    SELECT player_id, name, age, position, achievements, phone, email
+    SELECT player_id, name, age, position, playing_style, phone, email
     FROM Player
     WHERE auction_id=$auction_id AND LOWER(status)='approved'
     ORDER BY name");
@@ -89,7 +89,7 @@ $player_count = mysqli_num_rows($players_query);
                         <td><?php echo htmlspecialchars($player['name']); ?></td>
                         <td><?php echo htmlspecialchars($player['age']); ?></td>
                         <td><?php echo htmlspecialchars($player['position']); ?></td>
-                        <td><?php echo htmlspecialchars($player['achievements']); ?></td>
+                        <td><?php echo htmlspecialchars($player['playing_style']); ?></td>
                         <td><?php echo htmlspecialchars($player['phone']); ?></td>
                         <td><?php echo htmlspecialchars($player['email']); ?></td>
                     </tr>
