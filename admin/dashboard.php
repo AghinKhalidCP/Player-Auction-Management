@@ -11,8 +11,8 @@ if(!isset($_SESSION['admin_id'])){
 $auction_id = $_SESSION['auction_id'];
 
 // Stats
-$teams = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Team WHERE auction_id=$auction_id AND status='Approved'"));
-$players = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Player WHERE auction_id=$auction_id AND status='Approved'"));
+$teams = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Team WHERE auction_id=$auction_id AND LOWER(status)='approved'"));
+$players = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Player WHERE auction_id=$auction_id AND LOWER(status)='approved'"));
 $sold = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Auction_Record WHERE auction_id=$auction_id AND result='SOLD'"));
 ?>
 

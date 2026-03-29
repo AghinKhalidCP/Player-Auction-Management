@@ -11,8 +11,8 @@ if(isset($_GET['id']) && isset($_GET['auction_id'])){
     $team_id = $_GET['id'];
     $auction_id = $_GET['auction_id'];
 
-    // Update status to approved
-    $query = "UPDATE team SET status='approved' WHERE team_id='$team_id' AND auction_id='$auction_id'";
+    // Store approvals with consistent casing.
+    $query = "UPDATE team SET status='Approved' WHERE team_id='$team_id' AND auction_id='$auction_id'";
     mysqli_query($conn, $query);
 }
 

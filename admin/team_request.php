@@ -56,8 +56,9 @@ $result = mysqli_query($conn, $query);
             <tr>
                 <th>#</th>
                 <th>Team Name</th>
-                <th>Owner Name</th>
-                <th>Email</th>
+                <th>Manager Name</th>
+                <th>Achievements</th>
+                <th>Purse Remaining</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -74,11 +75,12 @@ $result = mysqli_query($conn, $query);
             <tr>
                 <td><?php echo $i++; ?></td>
                 <td><?php echo $row['team_name']; ?></td>
-                <td><?php echo $row['owner_name']; ?></td>
-                <td><?php echo $row['email']; ?></td>
+                <td><?php echo $row['manager_name']; ?></td>
+                <td><?php echo $row['achievements']; ?></td>
+                <td><?php echo $row['purse_remaining']; ?></td>
                 <td><?php echo ucfirst($row['status']); ?></td>
                 <td>
-                    <?php if($row['status'] == 'pending'){ ?>
+                    <?php if(strtolower($row['status']) == 'pending'){ ?>
                         <a href="approve_team.php?id=<?php echo $row['team_id']; ?>&auction_id=<?php echo $auction_id; ?>" class="btn btn-success btn-sm">Approve</a>
                         <a href="reject_team.php?id=<?php echo $row['team_id']; ?>&auction_id=<?php echo $auction_id; ?>" class="btn btn-danger btn-sm">Reject</a>
                     <?php } else { ?>
@@ -90,7 +92,7 @@ $result = mysqli_query($conn, $query);
         <?php
             }
         } else {
-            echo "<tr><td colspan='6' class='text-center'>No Teams</td></tr>";
+            echo "<tr><td colspan='7' class='text-center'>No Teams</td></tr>";
         }
         ?>
 

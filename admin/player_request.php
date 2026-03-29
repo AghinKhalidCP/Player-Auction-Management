@@ -58,7 +58,7 @@ $result = mysqli_query($conn, $query);
                 <th>Name</th>
                 <th>Age</th>
                 <th>Position</th>
-                <th>Achievement</th>
+                <th>Playing Style</th>
                 <th>Phone</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -78,7 +78,7 @@ $result = mysqli_query($conn, $query);
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['age']; ?></td>
                 <td><?php echo $row['position']; ?></td>
-                <td><?php echo $row['achievement']; ?></td>
+                <td><?php echo $row['playing_style']; ?></td>
                 <td><?php echo $row['phone']; ?></td>
                 <td><?php echo ucfirst($row['status']); ?></td>
                 <td>
