@@ -41,8 +41,14 @@ if(isset($_POST['submit'])){
 
     $player_id = intval($_POST['player_id']);
     $team_id = intval($_POST['team_id']);
-    $price = intval($_POST['price']) ?? 0;
     $result = mysqli_real_escape_string($conn, $_POST['result']);
+    $price = (!empty($_POST['price'])) ? intval($_POST['price']) : 0;
+
+    // Validate: SOLD records must have a price
+    if($result == "SOLD" && $price <= 0){
+        echo "<script>alert('Please enter a valid price for SOLD players'); window.history.back();</script>";
+        exit();
+    }
 
     // Insert auction record
     $insert = "INSERT INTO Auction_Record 
@@ -55,25 +61,25 @@ if(isset($_POST['submit'])){
     // If SOLD → update team purse + player status and store team_id
     if($result == "SOLD"){
 
-        // Reduce purse
+        // Reduce purse from team's purse_remaining
         mysqli_query($conn, "
             UPDATE Team 
             SET purse_remaining = purse_remaining - $price
             WHERE team_id = $team_id
         ");
 
-        // Assign player to team and store team_id in player table
+        // Assign player to team and store team_id in player table (status remains Approved)
         mysqli_query($conn, "
             UPDATE Player 
-            SET status='Sold', team_id=$team_id
+            SET team_id=$team_id
             WHERE player_id=$player_id
         ");
     } else {
 
-        // Mark as unsold and store 0 in team_id
+        // Mark as unsold by setting team_id=0 (status remains Approved)
         mysqli_query($conn, "
             UPDATE Player 
-            SET status='Unsold', team_id=0
+            SET team_id=0
             WHERE player_id=$player_id
         ");
     }

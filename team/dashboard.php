@@ -30,11 +30,11 @@ $my_players = mysqli_query($conn, "
     WHERE Auction_Record.team_id = $team_id");
 
 // Other teams
-$other_teams_result = mysqli_query($conn, "SELECT team_name FROM Team WHERE auction_id=$auction_id AND team_id != $team_id ORDER BY team_name");
+$other_teams_result = mysqli_query($conn, "SELECT team_name FROM Team WHERE auction_id=$auction_id AND team_id != $team_id AND LOWER(status)='approved' ORDER BY team_name");
 
 // Auction statistics
 $sold_count = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Auction_Record WHERE auction_id=$auction_id AND result='SOLD'"));
-$total_teams = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Team WHERE auction_id=$auction_id"));
+$total_teams = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Team WHERE auction_id=$auction_id AND LOWER(status)='approved'"));
 
 // Auction progress (sold players)
 $progress = mysqli_query($conn, "
@@ -43,7 +43,9 @@ $progress = mysqli_query($conn, "
     JOIN Player ON Player.player_id = Auction_Record.player_id
     JOIN Team ON Team.team_id = Auction_Record.team_id
     WHERE Auction_Record.auction_id = $auction_id
-    AND Auction_Record.result='SOLD'");
+    AND Auction_Record.result='SOLD'
+    AND LOWER(Player.status)='approved'
+    AND LOWER(Team.status)='approved'");
 
 ?>
 

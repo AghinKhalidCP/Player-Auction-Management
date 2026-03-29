@@ -39,8 +39,15 @@ if(isset($_POST['login'])){
             // Step 3: Compare auction_id from player with auction_id from URL
             if($player_id !== null && (int)$player['auction_id'] === (int)$auction['auction_id']){
 
-                // Step 4: Check if player is approved
-                if(strtolower($player['status']) === 'approved'){
+                // Step 4: Check player status
+                $status = strtolower($player['status']);
+                
+                // Check if player is rejected
+                if($status === 'rejected'){
+                    echo "<script>alert('Your player registration request has been rejected. Please contact administrator for more information.');</script>";
+                } 
+                // Allow login for pending and approved players
+                elseif($status === 'pending' || $status === 'approved'){
 
                     $_SESSION['player_id'] = $player_id;
                     $_SESSION['player'] = $username;
@@ -53,7 +60,7 @@ if(isset($_POST['login'])){
                           </script>";
 
                 } else {
-                    echo "<script>alert('Your profile is not approved yet');</script>";
+                    echo "<script>alert('Invalid player status');</script>";
                 }
 
             } else {

@@ -27,6 +27,11 @@ if(isset($_POST['login'])){
         $team = mysqli_fetch_assoc($team_result);
         $team_id = isset($team['team_id']) ? $team['team_id'] : null;
 
+        // Check if team status is rejected
+        if(strtolower($team['status']) === 'rejected'){
+            echo "<script>alert('Your team registration request has been rejected. Please contact administrator for more information.');</script>";
+        } else {
+
         // Step 2: Check auction using URL code
         $auction_query = "SELECT * FROM Auction 
                           WHERE auction_code='$auction_code'";
@@ -55,6 +60,8 @@ if(isset($_POST['login'])){
 
         } else {
             echo "<script>alert('Invalid Auction Code');</script>";
+        }
+
         }
 
     } else {
